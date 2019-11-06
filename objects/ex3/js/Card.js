@@ -25,14 +25,13 @@ class Card {
             imagem,
             titulo,
             ingredientes
-        } = this.resultado
-        const novoCard = `
-        <div class="card">
-            <img class="imagem" src="${imagem}"/>
+        } = this.receita
+        const card = `<div class="card">
+            <img class="imagem" src="${imagem}" />
             <h2>${titulo}</h2>
             <p class="ingredientes">${ingredientes}</p>
-        </div>
-        `
-        document.querySelector(".cards").innerHTML += novoCard;
+        </div>`
+        document.querySelector('.cards').insertAdjacentHTML('beforeend', card)
     }
 }
+
