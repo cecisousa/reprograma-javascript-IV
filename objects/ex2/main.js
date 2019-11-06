@@ -83,7 +83,7 @@ class Card {
   constructor (user) {
     this.user = user;
   }
-  criaCard() {
+  render() {
     const novoCard = `
     <div class="green avatar">
     <img class="img-rounded" src="${this.user.imagem}">
@@ -95,5 +95,5 @@ class Card {
 }
 
 users.forEach(element => {
-  new Card(element).criaCard();
+  new Card(element).render();
 });

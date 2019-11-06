@@ -29,6 +29,8 @@ let resultados = [
 const nav = new Navbar();
 nav.render();
 
-resultados.map((resultado) => {
-    new Card(resultado).render();
-});
+// Essa forma de renderizar permite que o componente seja adicionado a qualquer elemento, uma vez que vamos declarar isso somente aqui e não direto no componente:
+
+document.querySelector(".cards").innerHTML = resultados.map((resultado) => {
+    return new Card(resultado).render();
+}).join("");
