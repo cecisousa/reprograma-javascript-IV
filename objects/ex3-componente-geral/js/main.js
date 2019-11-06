@@ -34,3 +34,14 @@ nav.render();
 document.querySelector(".cards").innerHTML = resultados.map((resultado) => {
     return new Card(resultado).render();
 }).join("");
+
+document.querySelector(".button__search").addEventListener("click", function() {
+    let inputValue = document.querySelector(".input__search").value.toUpperCase();
+    let resultadosEncontrados = resultados.filter(resultado => {
+        return resultado.titulo.toUpperCase().includes(inputValue) || resultado.ingredientes.toUpperCase().includes(inputValue);
+    })
+    document.querySelector(".cards").innerHTML = resultadosEncontrados.map((resultado) => {
+        return new Card(resultado).render();
+    }).join("");
+    document.querySelector(".input__search").value = "";
+});
