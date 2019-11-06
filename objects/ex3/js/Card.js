@@ -25,7 +25,7 @@ class Card {
             imagem,
             titulo,
             ingredientes
-        } = this.receita
+        } = this.resultado
         const card = `<div class="card">
             <img class="imagem" src="${imagem}" />
             <h2>${titulo}</h2>
