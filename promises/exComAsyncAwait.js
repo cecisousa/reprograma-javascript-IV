@@ -1,46 +1,29 @@
-function criaTexto(texto) {
-    const div = document.querySelector('#root');
-    div.innerHTML += `<h1>${texto}</h1>`
-  }
-  
-  const sabao = true;
-  const agua = true;
-  
-  const ensaboar = () => {
+const http = require('http')
+
+const getTurma = (letra, callback) => {
+    const url = `http://files.cod3r.com.br/curso-js/turma${letra}.json`
     return new Promise((resolve, reject) => {
-      if (sabao) {
-        setTimeout(() => {
-          resolve('terminou de ensaboar');
-        }, 5000);
-      } else {
-        reject('não consigo ensaboar');
-      }
+        http.get(url, res => {
+            let resultado = ""
+            res.on("data", dados => {
+                resultado += dados;
+            })
+            res.on("end", () => {
+                try {
+                    resolve(JSON.parse(resultado))
+                } catch (e) {
+                    reject(e)
+                }
+            })
+        })
     })
-  }
-  
-  function enxaguar() {
-    return new Promise((resolve, reject) => {
-      if (agua) {
-        setTimeout(() => {
-          resolve('terminou de enxaguar');
-        }, 2000);
-      } else {
-        reject('não consigo enxaguar');
-      }
-    })
-  }
-  
-  ensaboar()
-    .then(res => {
-      criaTexto(res)
-      enxaguar()
-        .then(res2 => criaTexto(res2))
-        .catch(err2 => criaTexto(err2))
-    })
-    .catch(err => criaTexto(err))
-  
-  
-  
-  // Promise.all([ensaboar(), enxaguar()])
-  //   .then(resAll => resAll.forEach(res => criaTexto(res)))
-  //   .catch(err => console.log(err))
+}
+
+let obterAlunos = async() => {
+  const ta = await getTurma("A");
+  const tb = await getTurma("B");
+  const tc = await getTurma("C");
+  return [].concat(ta, tb, tc);
+}
+
+obterAlunos().then(alunos => alunos.map(a => a.nome)).then(nomes => console.log(nomes));

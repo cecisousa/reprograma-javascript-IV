@@ -28,6 +28,7 @@ function assarPizza (segundos) {
 
 function irPraCasaDosAmigos() {
     cheguei = true;
+    return cheguei;
 }
 
 function comprarEmOutraLugar() {

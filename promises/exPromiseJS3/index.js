@@ -3,8 +3,8 @@ function criaTexto(texto) {
     div.innerHTML += `<h1>${texto}</h1>`
   }
   
-  const sabao = true;
-  const agua = true;
+  const sabao = false;
+  const agua = false;
   
   const ensaboar = () => {
     return new Promise((resolve, reject) => {
@@ -37,10 +37,8 @@ function criaTexto(texto) {
         .then(res2 => criaTexto(res2))
         .catch(err2 => criaTexto(err2))
     })
-    .catch(err => criaTexto(err))
+    .catch(err => criaTexto(err)) 
   
-  
-  
-  // Promise.all([ensaboar(), enxaguar()])
-  //   .then(resAll => resAll.forEach(res => criaTexto(res)))
-  //   .catch(err => console.log(err))
+  Promise.all([ensaboar(), enxaguar()])
+    .then(resAll => resAll.forEach(resUnica => criaTexto(resUnica)))
+    .catch(err => console.log(err))
