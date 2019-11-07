@@ -79,4 +79,5 @@ console.log(numeros.findIndex(numero => numero === 3));
 
 // every():
 menorQueDez = (algumValor) => algumValor < 10;
+
 console.log(numeros.every(numero => menorQueDez(numero)));
