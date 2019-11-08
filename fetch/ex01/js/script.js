@@ -53,7 +53,6 @@ async function carregaCartas() {
         loading.style.display = "none";
     } catch (e) {
         renderizaCarta(placeholderCard)
-        // errorSection.innerHTML = `Não foi possível recarregar a página: ${e}`
         errorSection.innerHTML = `A requisição falhou: ${e}`  
         loading.style.display = "none";      
     }
