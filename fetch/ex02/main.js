@@ -20,6 +20,7 @@ cepInput.addEventListener("blur", () => {
     }
 })
 
+<<<<<<< HEAD
 // Outra forma de resolver:
 
 // cepInput.addEventListener("blur", () => {
@@ -39,3 +40,13 @@ cepInput.addEventListener("blur", () => {
 //     localidade.value = objeto.localidade
 //     uf.value = objeto.uf
 // }
+=======
+
+preencheInputs = objeto => {
+    logradouroInput.value = objeto.logradouro
+    complementoInput.value = objeto.complemento
+    bairroInput.value = objeto.bairro
+    localidadeInput.value = objeto.localidade
+    ufInput.value = objeto.uf
+}
+>>>>>>> upstream/aula3
