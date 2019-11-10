@@ -8,10 +8,6 @@ module.exports = {
         filename: "principal.js",
         path: __dirname + "/public"
     },
-    devServer {
-        contentBase: "./public",
-        porta: "900"
-    }
     plugins: [
         new MiniCssExtractPlugin({
             filename: "estilo.css"
